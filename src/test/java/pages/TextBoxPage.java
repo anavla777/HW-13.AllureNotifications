@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
     private SelenideElement userNameInput = $("#userName"),
-            submitClick = $("#submit"),
+            submitButton = $("#submit"),
             emailInput = $("#userEmail"),
             currentAddressInput = $("#currentAddress"),
             permanentAddressInput = $("#permanentAddress");
@@ -36,9 +36,9 @@ public class TextBoxPage {
         permanentAddressInput.setValue(value);
         return this;
     }
-    public TextBoxPage submitClick(){
-        submitClick.scrollIntoView(true);
-        submitClick.click();
+    public TextBoxPage submit(){
+        submitButton.scrollIntoView(true);
+        submitButton.click();
         return this;
     }
 

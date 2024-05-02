@@ -14,7 +14,7 @@ public class TextBoxPageObjectTests extends TestBase{
                 .setEmail("ada@lovelace.com")
                 .setCurrentAddress("Austin, Texas")
                 .setPermanentAddress("Moscow, Russia")
-                .submitClick()
+                .submit()
                 .checkResult("Name:", "Ada")
                 .checkResult("Email:", "ada@lovelace.com")
                 .checkResult("Current Address :", "Austin, Texas")
