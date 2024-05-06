@@ -2,53 +2,53 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import utils.TestData;
 
 public class DemoqaFormWithPageObjectsTests extends TestBase{
+    TestData testData = new TestData();
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void successfulRegistrationTest(){
         registrationPage.openPage()
                 .checkFormControl()
-                .setFirstName("Jensen")
-                .setLastName("Huang")
-                .setUserEmail("test@mail.com")
-                .setGender("Male")
-                .setUserNumber("1111111111")
-                .setDateOfBirth("30","May","1970")
-                .setSubjects("Physics")
-                .setSubjects("Computer Science")
-                .setHobbies("Reading")
-                .setHobbies("Music")
-                .uploadPicture("selenide-logo-big.png")
-                .setCurrentAddress("Groove street 1")
-                .setState("Haryana")
-                .setCity("Panipat")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setUserEmail(testData.email)
+                .setGender(testData.gender)
+                .setUserNumber(testData.phone)
+                .setDateOfBirth(testData.day, testData.month, testData.year)
+                .setSubjects(testData.subjectList)
+                .setHobbies(testData.hobbiesList)
+                .uploadPicture(testData.picture)
+                .setCurrentAddress(testData.address)
+                .setState(testData.state)
+                .setCity(testData.city)
 
                 .submit()
-                .checkResult("Student Name", "Jensen Huang")
-                .checkResult("Student Email", "test@mail.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "1111111111")
-                .checkResult("Date of Birth", "30 May,1970")
-                .checkResult("Subjects", "Physics, Computer Science")
-                .checkResult("Hobbies", "Reading, Music")
-                .checkResult("Picture", "selenide-logo-big.png")
-                .checkResult("Address", "Groove street 1")
-                .checkResult("State and City", "Haryana Panipat");
+                .checkResult("Student Name", testData.firstName+" "+testData.lastName)
+                .checkResult("Student Email", testData.email)
+                .checkResult("Gender",testData.gender)
+                .checkResult("Mobile", testData.phone)
+                .checkResult("Date of Birth", testData.day +" "+testData.month +","+testData.year)
+                .checkResult("Subjects",String.join(", ",testData.subjectList))
+                .checkResult("Hobbies", String.join(", ", testData.hobbiesList))
+                .checkResult("Picture", testData.picture)
+                .checkResult("Address", testData.address)
+                .checkResult("State and City", testData.state + " " + testData.city);
     }
 
     @Test
     void RegistrationRequiredFieldsTest(){
         registrationPage.openPage()
-                .setFirstName("Ada")
-                .setLastName("Lovelace")
-                .setGender("Female")
-                .setUserNumber("7999999999")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
+                .setUserNumber(testData.phone)
                 .submit()
-                .checkResult("Student Name", "Ada Lovelace")
-                .checkResult("Gender", "Female")
-                .checkResult("Mobile", "7999999999");
+                .checkResult("Student Name", testData.firstName+" "+testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.phone);
     }
 
     @Test

@@ -66,13 +66,17 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubjects(String value){
-        subjectsInput.setValue(value).pressEnter();
+    public RegistrationPage setSubjects(String[] subjects) {
+        for (String subject : subjects) {
+            subjectsInput.setValue(subject).pressEnter();
+        }
         return this;
     }
 
-    public RegistrationPage setHobbies(String value){
-        hobbiesWrapperInput.$(byText(value)).click();
+    public RegistrationPage setHobbies(String[] hobbiesList){
+        for (String hobby : hobbiesList){
+            hobbiesWrapperInput.$(byText(hobby)).click();
+        }
         return this;
     }
 
