@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestData {
-    public static Faker faker = new Faker();
+    public Faker faker = new Faker();
 
     public static final String[] genders = {"Male","Female","Other"};
     public static final String[] listOfMonths = {"January", "February", "March", "April", "May", "June",
@@ -51,61 +51,61 @@ public class TestData {
         return selection;
     }
 
-    public static String getRandomEmail(){
+    public String getRandomEmail(){
         return faker.internet().emailAddress();
     }
 
-    public static String getRandomAddress(){
+    public String getRandomAddress(){
         return faker.address().fullAddress();
     }
 
-    public static int getRandomYear(){
+    public int getRandomYear(){
         return faker.number().numberBetween(1900, Year.now().getValue());
     }
 
-    public static String getRandomMonth(){
+    public String getRandomMonth(){
         return faker.options().option(listOfMonths);
     }
 
-    public static String getRandomDay(String month){
+    public String getRandomDay(String month){
         Month aMonth = Month.valueOf(month.toUpperCase());
         int daysInMonth = aMonth.length(true);
         return Integer.toString(faker.number().numberBetween(1, daysInMonth));
     }
 
-    public static String getRandomName() {
+    public String getRandomName() {
 
         return faker.name().firstName();
     }
 
-    public static String getRandomLastName() {
+    public String getRandomLastName() {
 
         return faker.name().lastName();
     }
 
-    public static String getRandomGender()
+    public String getRandomGender()
     {
         return faker.options().option(genders);
     }
 
-    public static String getRandomPhoneNumber() {
+    public String getRandomPhoneNumber() {
         return faker.number().digits(10);
     }
 
-    public static String[] getRandomSubjectList(){
+    public String[] getRandomSubjectList(){
         return getRandomSelection(subjects);
     }
 
-    public static String[] getRandomHobbiesList(){
+    public String[] getRandomHobbiesList(){
         return getRandomSelection(hobbies);
     }
 
-    public static String getRandomState()
+    public String getRandomState()
     {
         return faker.options().option(states);
     }
 
-        public static String fillStatesAndGetCity(String state){
+        public String fillStatesAndGetCity(String state){
         statesAndCityMap.put(states[0], new String[]{"Delphi", "Gurgaon", "Noida"});
         statesAndCityMap.put(states[1], new String[]{"Agra", "Lucknow", "Merrut"});
         statesAndCityMap.put(states[2], new String[]{"Karnal", "Panipat"});
