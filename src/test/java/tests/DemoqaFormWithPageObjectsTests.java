@@ -56,7 +56,7 @@ public class DemoqaFormWithPageObjectsTests extends TestBase{
     @Test
     @Tag("demoqaForm")
     @DisplayName("Registration with only required field test")
-    void RegistrationRequiredFieldsTest(){
+    void registrationRequiredFieldsTest(){
         step("Open registration form", () -> {
             registrationPage.openPage();
         });
