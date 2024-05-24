@@ -14,7 +14,7 @@ allure {
         version.set(allureVersion)
     }
     adapter {
-        aspectjVersion.set("1.9.22")
+        aspectjVersion.set("1.9.22.1")
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
@@ -31,7 +31,6 @@ dependencies {
             'org.slf4j:slf4j-simple:2.0.13',
             'com.github.javafaker:javafaker:1.0.2'
     )
-    runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
 }
 
 tasks.withType(Test) {
