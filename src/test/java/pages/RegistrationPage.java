@@ -116,12 +116,11 @@ public class RegistrationPage {
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         return this;
     }
-    public RegistrationPage checkValidation() {
+    public void checkValidation() {
         userForm.shouldHave(cssClass("was-validated"));
         firstNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
         lastNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
         userNumberInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
         outputTable.shouldNotBe(visible);
-        return this;
     }
 }
