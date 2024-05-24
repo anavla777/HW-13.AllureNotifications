@@ -13,7 +13,7 @@ public class DemoqaFormWithPageObjectsTests extends TestBase{
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    @Tag("demoqa")
+    @Tag("demoqaForm")
     @DisplayName("Successful registration test")
     void successfulRegistrationTest(){
         step("Open registration form", () -> {
@@ -53,7 +53,7 @@ public class DemoqaFormWithPageObjectsTests extends TestBase{
     }
 
     @Test
-    @Tag("demoqa")
+    @Tag("demoqaForm")
     @DisplayName("Registration with only required field test")
     void RegistrationRequiredFieldsTest(){
         step("Open registration form", () -> {
@@ -76,7 +76,7 @@ public class DemoqaFormWithPageObjectsTests extends TestBase{
     }
 
     @Test
-    @Tag("demoqa")
+    @Tag("demoqaForm")
     @DisplayName("Send empty form test")
     void emptyRegistrationFormTest(){
         step("Open registration form", () -> {
