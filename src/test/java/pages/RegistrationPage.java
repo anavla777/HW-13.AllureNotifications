@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import pages.components.CalendarComponent;
 import pages.components.CityComponent;
@@ -107,6 +108,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Field: {key} should have text: {value}")
     public RegistrationPage checkResult(String key, String value) {
         outputTable.$(byText(key)).parent()
                 .shouldHave(text(value));
