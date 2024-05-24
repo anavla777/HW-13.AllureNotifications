@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CityComponent {
     public void setCity(String value){
+        $("#city").scrollIntoView(true);
         $("#city").click();
         $("#stateCity-wrapper").$(byText(value)).click();
     }
