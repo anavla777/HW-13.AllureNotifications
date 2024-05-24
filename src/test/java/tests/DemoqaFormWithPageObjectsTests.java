@@ -8,6 +8,7 @@ import utils.TestData;
 
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("DemoQA registration form tests")
 public class DemoqaFormWithPageObjectsTests extends TestBase{
     TestData testData = new TestData();
     RegistrationPage registrationPage = new RegistrationPage();
