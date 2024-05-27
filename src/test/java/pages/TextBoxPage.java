@@ -6,11 +6,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
-    private SelenideElement userNameInput = $("#userName"),
-            submitButton = $("#submit"),
-            emailInput = $("#userEmail"),
-            currentAddressInput = $("#currentAddress"),
-            permanentAddressInput = $("#permanentAddress");
+    private final SelenideElement userNameInput = $("#userName");
+    private final SelenideElement submitButton = $("#submit");
+    private final SelenideElement emailInput = $("#userEmail");
+    private final SelenideElement currentAddressInput = $("#currentAddress");
+    private final SelenideElement permanentAddressInput = $("#permanentAddress");
 
     public TextBoxPage openPage() {
         open("/text-box");

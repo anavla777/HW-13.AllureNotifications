@@ -45,12 +45,12 @@ tasks.withType(Test).configureEach {
     }
 }
 
-task registrationTests(type: Test) {
+tasks.register('registrationTests', Test) {
     useJUnitPlatform {
         includeTags("demoqaForm")
     }
 }
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 

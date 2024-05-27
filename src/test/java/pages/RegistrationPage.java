@@ -21,6 +21,7 @@ public class RegistrationPage {
             userNumberInput = $("#userNumber"),
             calendarInput = $("#dateOfBirthInput"),
             subjectsInput = $("#subjectsInput"),
+            subjectAutoComplete = $(".subjects-auto-complete__menu"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
             uploadPicture = $("#uploadPicture"),
             currentAddressInput = $("#currentAddress"),
@@ -32,7 +33,6 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        System.out.println(Configuration.browserSize);
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -71,7 +71,8 @@ public class RegistrationPage {
 
     public RegistrationPage setSubjects(String[] subjects) {
         for (String subject : subjects) {
-            subjectsInput.setValue(subject).pressEnter();
+            subjectsInput.setValue(subject);
+            subjectAutoComplete.$(byText(subject)).click();
         }
         return this;
     }

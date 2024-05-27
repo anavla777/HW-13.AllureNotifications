@@ -18,8 +18,8 @@ public class TestBase {
         Configuration.baseUrl=System.getProperty("baseUrl","https://demoqa.com");
         Configuration.browserSize=System.getProperty("browserSize","1920x1080");
         Configuration.remote=System.getProperty("wdhost");
-        Configuration.browser=System.getProperty("browser","chrome");
-        Configuration.browserVersion=System.getProperty("browserVersion");
+        Configuration.browser=System.getProperty("browser","firefox");
+        Configuration.browserVersion=System.getProperty("browserVersion","100");
         //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -34,7 +34,7 @@ public class TestBase {
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        Attach.browserConsoleLogs();
+        //Attach.browserConsoleLogs();
         Attach.addVideo();
         Selenide.closeWebDriver();
     }
