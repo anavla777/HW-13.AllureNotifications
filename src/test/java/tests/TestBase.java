@@ -14,15 +14,9 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
-        final String wdhost= Attach.getSelenoidHost();
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl=System.getProperty("baseUrl","https://demoqa.com");
         Configuration.browserSize=System.getProperty("browserSize","1920x1080");
-
-        if (wdhost!=null) {
-            Configuration.remote=wdhost+"/wd/hub";
-        }
-
         Configuration.browser=System.getProperty("browser","chrome");
         Configuration.browserVersion=System.getProperty("browserVersion","125");
         DesiredCapabilities capabilities = new DesiredCapabilities();
