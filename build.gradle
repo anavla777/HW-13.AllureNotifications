@@ -29,7 +29,8 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter:5.10.2",
             'org.slf4j:slf4j-simple:2.0.13',
-            'com.github.javafaker:javafaker:1.0.2'
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.aeonbits.owner:owner:1.0.12'
     )
 }
 

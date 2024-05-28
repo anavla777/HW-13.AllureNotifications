@@ -14,6 +14,13 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
+
+    private static final String selenoidHost = System.getProperty("wdhost", null);
+
+    public static String getSelenoidHost() {
+        return selenoidHost;
+    }
+
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
@@ -44,11 +51,13 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
-        try {
-            return new URL(videoUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        if (getSelenoidHost() != null) {
+            String videoUrl = "https://" + getSelenoidHost() + "/video/" + sessionId() + ".mp4";
+            try {
+                return new URL(videoUrl);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }

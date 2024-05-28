@@ -14,14 +14,17 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+        final String wdhost= Attach.getSelenoidHost();
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl=System.getProperty("baseUrl","https://demoqa.com");
         Configuration.browserSize=System.getProperty("browserSize","1920x1080");
-        Configuration.remote=System.getProperty("wdhost");
-        Configuration.browser=System.getProperty("browser","firefox");
-        Configuration.browserVersion=System.getProperty("browserVersion","100");
-        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
+        if (wdhost!=null) {
+            Configuration.remote=wdhost+"/wd/hub";
+        }
+
+        Configuration.browser=System.getProperty("browser","chrome");
+        Configuration.browserVersion=System.getProperty("browserVersion","125");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
@@ -34,7 +37,9 @@ public class TestBase {
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        //Attach.browserConsoleLogs();
+        if (!Configuration.browser.equals("firefox")) {
+            Attach.browserConsoleLogs();
+        }
         Attach.addVideo();
         Selenide.closeWebDriver();
     }
