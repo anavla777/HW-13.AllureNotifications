@@ -17,7 +17,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl=System.getProperty("baseUrl","https://demoqa.com");
         Configuration.browserSize=System.getProperty("browserSize","1920x1080");
-        Configuration.browser=System.getProperty("browser","chrome");
+        Configuration.browser=System.getProperty("browser","firefox");
         Configuration.browserVersion=System.getProperty("browserVersion","125");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
