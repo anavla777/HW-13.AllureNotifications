@@ -29,7 +29,7 @@ public class TestData {
     public String phone = getRandomPhoneNumber();
     public String[] subjectList = getRandomSubjectList();
     public String[] hobbiesList = getRandomHobbiesList();
-    public String picture = "testImage.png";
+    public String picture = "resources/testImage.png";
     public String address = getRandomAddress();
     public String state = getRandomState();
     public String city = fillStatesAndGetCity(state);
