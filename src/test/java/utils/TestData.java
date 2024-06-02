@@ -106,7 +106,7 @@ public class TestData {
     }
 
         public String fillStatesAndGetCity(String state){
-        statesAndCityMap.put(states[0], new String[]{"Delphi", "Gurgaon", "Noida"});
+        statesAndCityMap.put(states[0], new String[]{"Delhi", "Gurgaon", "Noida"});
         statesAndCityMap.put(states[1], new String[]{"Agra", "Lucknow", "Merrut"});
         statesAndCityMap.put(states[2], new String[]{"Karnal", "Panipat"});
         statesAndCityMap.put(states[3], new String[]{"Jaipur", "Jaiselmer"});
