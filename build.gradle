@@ -54,4 +54,3 @@ tasks.register('registrationTests', Test) {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
-
