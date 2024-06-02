@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.TestData;
 
-import static io.qameta.allure.Allure.step;
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @DisplayName("DemoQA registration form tests")
 public class DemoqaFormWithPageObjectsTests extends TestBase{

@@ -1,5 +1,6 @@
 build/
 !gradle/wrapper/gradle-wrapper.jar
+!notifications/allure-notifications-4.6.1.jar
 !**/src/main/**
 !**/src/test/**
 
